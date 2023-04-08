@@ -19,14 +19,14 @@ userRouter.get('/', async (req: Request, res: Response) => {
 
 // GET: single user (LOGIN)
 
-userRouter.get('/login', async(req: Request, res: Response) => {
+userRouter.post('/login', async(req: Request, res: Response) => {
     try {
         const user = req.body
         const existedUser = await UserService.login(user)
         if(existedUser){
             res.status(200).json(existedUser)
         } else {
-            res.status(403).json({message: 'Invalid Name or Email'})
+            res.status(403).json({message: 'Invalid Name or Password'})
         }
     } catch (error: any) {
         return res.status(400).json(error.message)
@@ -35,11 +35,11 @@ userRouter.get('/login', async(req: Request, res: Response) => {
 
 
 // POST: Create new user (SIGNUP)
-userRouter.post('/', async (req: Request, res: Response) => {
+userRouter.post('/signup', async (req: Request, res: Response) => {
     try {
         const user = req.body
         const newUser = await UserService.signup(user)
-        return res.status(200).json(newUser)
+        return res.status(200).json({...newUser, message: 'Signup Successfully'})
     } catch (error: any) {
         return res.status(400).json(error.message)
     }

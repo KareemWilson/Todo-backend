@@ -18,29 +18,35 @@ export const listUsers = async (): Promise<User[]> => {
 };
 
 // Find single user (LOGIN)
-export const login = async(user: Omit<User, "id">): Promise<User | null> => {
-    const { name, email } = user
+export const login = async(user: Omit<User, "id"> & { password: string; }): Promise<User | null> => {
+    const { name, password } = user
     return db.user.findFirst({
         where: {
             name,
-            email
+            password
+        },
+        select: {
+          id: true,
+          name: true,
+          email: true,
         }
     })
 }
 
 // Create new User (SIGNUP)
 
-export const signup = async (user: Omit<User, "id">): Promise<User> => {
-    const { name, email } = user
+export const signup = async (user: Omit<User, "id"> & { password: string }): Promise<User> => {
+    const { name, email, password } = user
     return db.user.create({
         data: {
             name,
-            email
+            email,
+            password
         },
         select: {
             id: true,
             name: true,
-            email: true
+            email: true,
         }
     })
 }
