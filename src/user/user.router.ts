@@ -26,10 +26,10 @@ userRouter.post('/login', async(req: Request, res: Response) => {
         if(existedUser){
             res.status(200).json(existedUser)
         } else {
-            res.status(403).json({message: 'Invalid Name or Password'})
+            res.status(403).json({error: 'Invalid Name or Password'})
         }
     } catch (error: any) {
-        return res.status(400).json(error.message)
+        return res.status(400).json({error: error.message})
     }
 })
 

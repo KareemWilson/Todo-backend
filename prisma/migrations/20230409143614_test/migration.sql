@@ -17,7 +17,7 @@ CREATE TABLE "Todo" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "isDone" BOOLEAN NOT NULL,
+    "isDone" BOOLEAN NOT NULL DEFAULT false,
     "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Todo_pkey" PRIMARY KEY ("id")
