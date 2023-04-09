@@ -19,12 +19,18 @@ Functionality | HTTP request | Description
 [**Get Todos**](API.md#GetTodos) | **GET**: /todos/:userId | Get all todos for particular userId
 [**Add new Todo**](API.md#AddTodo) | **POST**: /todos/ | User can add new task or todo item to his own list
 [**Delete Todo**](API.md#DeleteTodo) | **Delete**: /todos/:todoId | User can delete particular todo or task from his own list
+[**Update Task status**](API.md#updateTask) | **PATCH**: /todos/:{todoId} | User can update the task status whether it is done or not.
+
 ---------
 
 ## **Signup**
 ```
     http://localhost:8000/api/users/signup
 ```
+
+### METHOD: 
+
+`POST`
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -63,6 +69,9 @@ JSON
 ```
     http://localhost:8000/api/users/login
 ```
+### METHOD: 
+
+`POST`
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -98,6 +107,10 @@ JSON
 ```
     http://localhost:8000/api/todos/:{userID}
 ```
+
+### METHOD: 
+
+`GET`
 
 ### Parameters
 
@@ -142,6 +155,10 @@ JSON
     http://192.168.1.84:8000/api/todos
 ```
 
+### METHOD: 
+
+`POST`
+
 ### Parameters
 This endpoint does not need any parameter.
 
@@ -180,6 +197,10 @@ JSON
     http://192.168.1.84:8000/api/todos/:{todoId}
 ```
 
+### METHOD: 
+
+`DELETE`
+
 ### Parameters
 
 - todoId
@@ -201,3 +222,46 @@ String
 ```sh
 "Task Deleted Successfully"
 ```
+--------------------------
+
+## **Update Task status**
+```
+    http://192.168.1.84:8000/api/todos/:{todoId}
+```
+
+
+### METHOD: 
+
+`PARCH`
+
+### Parameters
+
+- todoId
+
+### Body
+
+- updatedStatus typeOf => true
+
+
+**Example**
+- URL:
+```sh
+  http://localhost:8000/api/todos/6
+```
+
+- Body:
+```sh
+  {
+  "updatedStatus": true
+  }
+```
+
+### Return type
+
+String
+
+```sh
+"Task Updated Successfully"
+```
+
+----------------------------
