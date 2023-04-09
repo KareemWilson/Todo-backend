@@ -1,6 +1,6 @@
 # Todo-backend
 
-## Important Links
+## Important Links and Info
 
 - [API Documentation](./API.md)
 - [FrontEnd Repository](https://github.com/KareemWilson/Todo-mobile)
@@ -26,7 +26,7 @@
 
 # 📖 TodoList <a name="about-project"></a>
 
-**TodoList** 
+**TodoList** Mobile application made with React Native and Node.js is an application that allows users to create, manage, and track their daily tasks. The app allows users to add tasks. The user interface is simple and intuitive, making it easy for users to navigate and use. The app is built on top of a Node.js backend, which stores the tasks by dealing with PostgreSQL and Prisma.js
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -74,7 +74,7 @@ In order to run this project you need:
 
 ### Setup
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
@@ -83,16 +83,25 @@ Clone this repository to your desired folder:
 
 ### Install
 
-Install this project with:
+- Install this project with:
 
 ```sh
   cd Todo-backend
   npm install
 ```
-NOTE: 'Make sure that you are using node *16.20.0*'
+**NOTE:** *'Make sure that you are using node *16.20.0*'*
+
+- Migrate database: 
+
+```sh
+  npx prisma migrate dev
+```
+
+*This Command will migrate db and seed it*
+
 ### Usage
 
-To run the project, execute the following command:
+- To run the project, execute the following command:
 
 ```sh
   npm run dev
