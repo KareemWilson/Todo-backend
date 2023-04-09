@@ -1,6 +1,5 @@
 import { db } from "../utils/db.server";
-import type { User } from "../user/user.service";
-import { json } from "stream/consumers";
+
 
 type Todo = {
   id: number;
@@ -54,6 +53,19 @@ export const deleteTodo = async (todoId: number): Promise<Todo> => {
   return db.todo.delete({
     where: {
       id: todoId,
+    },
+  });
+};
+
+
+// Update todo Status 
+export const updateStatus = async (todoId: number, updatedStatus: boolean): Promise<Todo> => {
+  return db.todo.update({
+    where: {
+      id: todoId,
+    },
+    data: {
+      isDone: updatedStatus,
     },
   });
 };

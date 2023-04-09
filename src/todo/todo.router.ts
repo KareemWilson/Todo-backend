@@ -43,3 +43,21 @@ todoRouter.delete('/:todoId', async (req: Request, res: Response) => {
         return res.status(400).json('An Error accurred while deleting the task')
     }
 } )
+
+
+// PATCH: Update the status of particular task
+
+todoRouter.patch('/:todoId', async (req: Request, res: Response) => {
+    try {
+        const todoId = req.params.todoId
+        const status = req.body.updatedStatus
+        console.log(req.body);
+        
+        await TodoService.updateStatus(parseInt(todoId), status)
+        return res.status(200).json('Task Updated Successfully')
+
+    } catch (error: any) {
+        return res.status(400).json('An Error accurred while deleting the task')
+
+    }
+})
