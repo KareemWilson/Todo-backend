@@ -74,7 +74,7 @@ In order to run this project you need:
 
 ### Setup
 
-- Clone this repository to your desired folder:
+- **Clone this repository to your desired folder:**
 
 ```sh
   cd my-folder
@@ -83,7 +83,7 @@ In order to run this project you need:
 
 ### Install
 
-- Install this project with:
+- **Install this project with:**
 
 ```sh
   cd Todo-backend
@@ -91,7 +91,26 @@ In order to run this project you need:
 ```
 **NOTE:** *'Make sure that you are using node *16.20.0*'*
 
-- Migrate database: 
+- Add `.env` file
+
+This file used by prisma only, But I didn't push it into version control for security best practises ( We specify in it the `DATABASE_URL` environment variable, and `PORT`)
+
+**So,**
+*First:* Create `.env` file
+
+*Second:* Initialize DATABASE_URL environment variable
+
+```sh
+  DATABASE_URL="postgresql://<Database_username>:<Database_password>@localhost:5432/mydb?schema=public"
+```
+
+*Finally:* Initialize PORT environment variable, set it to 8000
+
+```sh
+  PORT = 8000
+```
+
+- **Migrate database:** 
 
 ```sh
   npx prisma migrate dev
@@ -101,7 +120,7 @@ In order to run this project you need:
 
 ### Usage
 
-- To run the project, execute the following command:
+- **To run the project, execute the following command:**
 
 ```sh
   npm run dev
